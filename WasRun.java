@@ -1,20 +1,19 @@
-
-
 public class WasRun extends TestCase {
 	 
 	public boolean wasRun;
 	public boolean wasSetup;
 	
-	public WasRun(String name){
+	public WasRun(String name) {
+		super(name);
 		this.wasRun = false;
-		this.name = name;
 	}
 	
-	public void wasSetupUp(){
-		wasSetup = true;
+	private void testMethod(){
+		wasRun=true;
 	}
 	
-	public void testMethod(){
-		this.wasRun = true;
+	public void wasSetup() {
+		wasRun=false;
+		wasSetup=true;
 	}
 }

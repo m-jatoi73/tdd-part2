@@ -1,17 +1,25 @@
-
-
 public class TestCaseTest {
 
-	public void testRunning() throws Exception{
-
-		WasRun wasRun = new WasRun("testMethod");
-		assert (!wasRun.wasRun);
-		wasRun.run();
-		assert (wasRun.wasRun);
+	WasRun wasRun = null;
+	
+	public void setup() {
+		wasRun = new WasRun("testMethod");
 	}
-
-
-	public static void main(String args[]) throws Exception{
-		(new TestCaseTest()).testRunning();
+	
+	public void testRunning() {
+		wasRun.run();
+		assert wasRun.wasRun;
+	}
+	
+	public void testSetUp() {
+		wasRun.run();
+		assert wasRun.wasSetup;
+	}
+	
+	public static void main(String[] args) {
+		TestCaseTest t = new TestCaseTest();
+		t.setup();
+		t.testRunning();
+		t.testSetUp();
 	}
 }
