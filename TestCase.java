@@ -10,13 +10,11 @@ public class TestCase {
 	}
 	
 	public void run() {
-		Method method = null;
-		
+		Method method2;
 		try {
-			method = this.getClass().getDeclaredMethod(name);
-			method.setAccessible(true);
-			method.invoke(this);
-			tearDown();
+			method2 = this.getClass().getDeclaredMethod(name);
+			method2.setAccessible(true);
+			method2.invoke(this);
 		} 
 		catch (NoSuchMethodException e) {
 			e.printStackTrace();
@@ -30,8 +28,5 @@ public class TestCase {
 		catch (InvocationTargetException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public void tearDown() {
 	}
 }
