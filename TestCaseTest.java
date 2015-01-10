@@ -4,8 +4,17 @@ public class TestCaseTest {
 	
 	public void setup() {
 		wasRun = new WasRun("testMethod");
+		testTemplateMethod();
+		wasRun.run();
+		assert("setUp testMethod " == wasRun.log);
 	}
 	
+	void testTemplateMethod() {
+		wasRun = new WasRun("testMethod");
+		wasRun.run();
+		assert("setUp testMethod tearDown " == wasRun.log);
+	}
+
 	public void testRunning() {
 		wasRun.run();
 		assert wasRun.wasRun;
@@ -13,7 +22,7 @@ public class TestCaseTest {
 	
 	public void testSetUp() {
 		wasRun.run();
-		assert wasRun.wasSetup;
+		assert("setUp testMethod" == wasRun.log);
 	}
 	
 	public static void main(String[] args) {
